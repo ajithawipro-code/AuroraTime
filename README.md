@@ -86,7 +86,7 @@ const firebaseConfig = {
 
 ## 🙋‍♀️ Author
 
-**Ajitha**  
+**Ajitha Abdul Rahim**  
 💻 Passionate FullStack Developer  
 
 🔗 GitHub: https://github.com/ajithawipro-code  
