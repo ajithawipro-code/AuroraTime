@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AuroraTime - Add Activity</title>
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../styles/add-activity.css" />
+</head>
+<body>
+  <div class="page-container">
+    <!-- Top bar / header -->
+    <header class="top-bar">
+      <div class="logo-title">
+        <h1 class="app-title">AuroraTime</h1>
+        <p class="app-subtitle">Design your day</p>
+        <p class="welcome-text" id="welcomeText">Welcome, User</p>
+      </div>
+
+      <!-- Center date pill -->
+      <div class="date-wrapper">
+        <button id="dateDisplay" class="date-pill">
+          <span id="dateDisplayText">-- -- ----</span>
+          <span class="date-icon">📅</span>
+        </button>
+        <!-- Hidden native date picker -->
+        <input type="date" id="datePicker" class="hidden-date-input" />
+      </div>
+
+      <!-- Right nav buttons -->
+      <nav class="nav-buttons">
+        <button class="nav-btn" id="goDashboardBtn">
+          <span>📊</span>
+          <span>Dashboard</span>
+        </button>
+        <button class="nav-btn logout" id="logoutBtn">
+          <span>↪</span>
+          <span>Logout</span>
+        </button>
+      </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="content">
+      <!-- Add Activity Card -->
+      <section class="card add-card">
+        <div class="card-header">
+          <h2>Add Activity</h2>
+        </div>
+
+        <div class="add-grid">
+          <!-- Activity name -->
+          <div class="field-group">
+            <label for="activityName">Activity Name</label>
+            <input
+              type="text"
+              id="activityName"
+              placeholder="e.g., Morning workout"
+            />
+          </div>
+
+          <!-- Category -->
+          <div class="field-group">
+            <label for="activityCategory">Category</label>
+            <select id="activityCategory">
+              <option value="Work">Work</option>
+              <option value="Study">Study</option>
+              <option value="Health">Health</option>
+              <option value="Sleep">Sleep</option>
+              <option value="Leisure">Leisure</option>
+              <option value="Others">Others</option>
+            </select>
+          </div>
+
+          <!-- Duration -->
+          <div class="field-group">
+            <label for="activityMinutes">Duration (minutes)</label>
+            <input
+              type="number"
+              id="activityMinutes"
+              min="1"
+              max="1440"
+              placeholder="60"
+            />
+          </div>
+
+          <!-- Button -->
+          <div class="field-group add-btn-wrapper">
+            <button id="addActivityBtn" class="primary-btn">
+              Add Activity
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Today's Activities table -->
+      <section class="card table-card">
+        <div class="card-header">
+          <h2>Today's Activities</h2>
+        </div>
+
+        <div class="table-wrapper">
+          <table class="activities-table">
+            <thead>
+              <tr>
+                <th>Activity</th>
+                <th>Category</th>
+                <th>Minutes</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="activitiesBody">
+              <!-- Filled via JS -->
+            </tbody>
+          </table>
+
+          <p id="emptyState" class="empty-state">No activities for this day yet.</p>
+        </div>
+      </section>
+
+      <!-- Daily progress -->
+      <section class="card progress-card">
+        <div class="progress-header">
+          <h2>Daily Progress</h2>
+          <span id="progressLabel" class="progress-label">0 / 1440 min</span>
+        </div>
+        <div class="progress-bar-outer">
+          <div id="progressBarInner" class="progress-bar-inner"></div>
+        </div>
+        <p id="progressRemaining" class="progress-remaining">
+          1440 minutes remaining
+        </p>
+      </section>
+    </main>
+  </div>
+
+  <!-- Firebase compat SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+
+  <!-- Firebase init (guard so we don't double-init) -->
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyAleMfich680x6xilWHXOKshwy6x265H5Y",
+      authDomain: "auroratime-24dbe.firebaseapp.com",
+      databaseURL:
+        "https://auroratime-24dbe-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "auroratime-24dbe",
+      storageBucket: "auroratime-24dbe.firebasestorage.app",
+      messagingSenderId: "879827095512",
+      appId: "1:879827095512:web:772f6472c0a4a67232ecad",
+    };
+
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
+  </script>
+
+  <!-- Page logic -->
+  <script src="../scripts/add-activity.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuroraTime - Dashboard</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/dashboard.css">
+</head>
+
+<body onload="initDashboard()">
+
+<header class="top-nav">
+    <div class="user-info">
+        <img id="userPhoto" class="user-photo" alt="User">
+        <span id="userName" class="user-name"></span>
+    </div>
+
+    <div class="top-actions">
+        <button class="glow-btn add" onclick="goToAddPage()"><i class="ri-add-fill"></i> Add Activity</button>
+        <button class="glow-btn logout" onclick="logout()"><i class="ri-logout-box-r-line"></i> Logout</button>
+    </div>
+</header>
+
+<section class="date-bar">
+    <button class="nav-btn" onclick="previousDate()"><i class="ri-arrow-left-s-line"></i></button>
+
+    <div class="date-display" onclick="openDashDatePicker()">
+        <span id="dashDateText"></span>
+    </div>
+
+    <input type="date" id="dashDatePicker" hidden>
+
+    <button class="nav-btn" onclick="nextDate()"><i class="ri-arrow-right-s-line"></i></button>
+</section>
+
+<section class="cards-container">
+    <div class="card glass">
+        <h3><i class="ri-time-line"></i> Total Time</h3>
+        <p id="totalTime" class="card-value">0</p>
+        <span>minutes</span>
+    </div>
+
+    <div class="card glass">
+        <h3><i class="ri-file-list-3-line"></i> Activities</h3>
+        <p id="totalActivities" class="card-value">0</p>
+        <span>logged</span>
+    </div>
+
+    <div class="card glass">
+        <h3><i class="ri-calendar-check-line"></i> Day Completion</h3>
+        <p id="dayPercent" class="card-value">0%</p>
+        <span>of 1440 mins</span>
+    </div>
+</section>
+
+<section class="chart-section glass">
+    <h2 class="chart-title">Activity Breakdown</h2>
+    <canvas id="activityChart"></canvas>
+    <p id="emptyChartMsg" class="empty-msg">No activities logged for this date.</p>
+</section>
+<!-- 🌟 AI MOOD SECTION -->
+<section class="ai-section glass">
+    <h2 class="chart-title">AI Mood of the Day</h2>
+    <p class="ai-desc">
+        Click the button below and I’ll generate a mood summary and suggestions based on today's activities.
+    </p>
+
+    <button class="ai-btn" onclick="analyzeMood()">✨ Analyze with AI</button>
+</section>
+
+<!-- 🎉 AI RESULT BOX (HIDDEN UNTIL CLICK) -->
+<div id="aiResult" class="ai-box glass" style="display:none;">
+    <h3>🧠 Mood Insights</h3>
+    <p id="aiMoodText" class="ai-text"></p>
+    <p id="aiTipText" class="ai-tip"></p>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="../scripts/firebase.js"></script>
+<script src="../scripts/auth.js"></script>
+<script src="../scripts/dashboard.js"></script>
+
+</body>
+</html>

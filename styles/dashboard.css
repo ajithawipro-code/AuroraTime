@@ -1,0 +1,241 @@
+/* ============ GLOBAL ============ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at top, #2d1b4a 0, #050016 55%, #020817 100%);
+    min-height: 100vh;
+    color: #f8fbff;
+}
+
+/* ============ TOP NAVBAR ============ */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 45px;
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: 0 0 14px rgba(0, 255, 255, 0.12);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user-photo {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 3px solid #00eaff;
+}
+
+.user-name {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+/* 🔘 Glowing Buttons */
+.glow-btn {
+    padding: 12px 22px;
+    border-radius: 40px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 15px;
+    color: white;
+    transition: 0.25s;
+}
+
+.glow-btn.add {
+    background: linear-gradient(90deg, #09d6ff, #8759ff);
+    box-shadow: 0 0 12px rgba(0, 214, 255, 0.8);
+}
+
+.glow-btn.logout {
+    background: linear-gradient(90deg, #ff776b, #ffb36e);
+    box-shadow: 0 0 12px rgba(255, 106, 106, 0.8);
+}
+
+.glow-btn:hover {
+    transform: translateY(-1.5px);
+    opacity: 0.95;
+}
+
+/* ============ DATE BAR ============ */
+.date-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 35px;
+    gap: 20px;
+}
+
+.nav-btn {
+    background: rgba(15, 12, 45, 0.9);
+    border-radius: 50%;
+    border: 1px solid #7ab7ff;
+    color: #e4ecff;
+    padding: 10px 14px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: 0.25s;
+    box-shadow: 0 0 10px rgba(122, 157, 255, 0.6);
+}
+
+.nav-btn:hover {
+    background: rgba(31, 39, 88, 0.9);
+}
+
+.date-display {
+    background: rgba(10, 12, 32, 0.9);
+    border-radius: 30px;
+    padding: 11px 36px;
+    cursor: pointer;
+    border: 1px solid rgba(137, 165, 255, 0.3);
+    font-weight: 600;
+    color: #f5faff;
+}
+
+/* ============ DASHBOARD CARDS ============ */
+.cards-container {
+    margin-top: 45px;
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    padding: 0 32px;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 300px;
+    text-align: center;
+    padding: 28px 20px;
+    border-radius: 26px;
+    background: radial-gradient(circle at top left, #30224b, #141327 55%, #141024);
+    border: 1px solid rgba(114, 94, 180, 0.5);
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+
+.card-value {
+    font-size: 54px;
+    font-weight: 700;
+    margin: 12px 0;
+    color: #36e3ff;
+}
+
+.card span {
+    color: #c8d8ff;
+    font-size: 15px;
+}
+
+/* ============ CHART SECTION ============ */
+.chart-section {
+    margin: 60px auto 50px;
+    width: 75%;
+    padding: 35px 25px;
+    border-radius: 30px;
+    backdrop-filter: blur(15px);
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.12);
+    text-align: center;
+}
+
+.chart-title {
+    margin-bottom: 16px;
+    font-size: 2.3rem;
+    font-weight: 700;
+}
+
+/* Reduce Pie Chart Size */
+#activityChart {
+    max-width: 360px;
+    margin: 0 auto;
+}
+
+/* Empty message */
+.empty-msg {
+    margin-top: 16px;
+    color: #9fb6d9;
+    display: none;
+}
+
+/* ============ AI MOOD ============ */
+.ai-section {
+    width: 90%;
+    margin: 0 auto 4rem;
+    padding: 2.2rem 2.8rem;
+    border-radius: 28px;
+    backdrop-filter: blur(15px);
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.10);
+    text-align: left;
+}
+
+.ai-section h2 {
+    font-size: 2.3rem;
+    font-weight: 600;
+}
+
+.ai-section p {
+    color: #C8D1E1;
+    font-size: 1.15rem;
+    margin: 18px 0 22px;
+}
+
+/* AI Button */
+.ai-btn {
+    padding: 15px 35px;
+    border-radius: 55px;
+    font-size: 1.15rem;
+    border: none;
+    cursor: pointer;
+    color: white;
+    background: linear-gradient(90deg, #00c6ff, #8257e5);
+    box-shadow: 0 0 15px rgba(0, 198, 255, 0.6);
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ai-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(130, 87, 229, 0.8);
+}
+
+/* 🧠 AI Result Box */
+.ai-box {
+    width: 90%;
+    margin: 1.5rem auto 4rem;
+    padding: 2rem 2.5rem;
+    border-radius: 28px;
+    backdrop-filter: blur(15px);
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.12);
+    text-align: left;
+}
+
+.ai-box h3 {
+    font-size: 1.7rem;
+    margin-bottom: 12px;
+}
+
+.ai-text {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.ai-tip {
+    font-size: 1.1rem;
+    opacity: 0.85;
+}

@@ -1,49 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta property="og:title" content="AuroraTime" />
-    <meta property="og:description" content="AI Mood-Based Time Tracker" />
-    <meta
-      property="og:image"
-      content="https://static.getmocha.com/og.png"
-      type="image/png"
-    />
-    <meta
-      property="og:url"
-      content="https://getmocha.com"
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:author" content="AuroraTime" />
-    <meta property="og:site_name" content="AuroraTime" />
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:site" content="@get_mocha" />
-    <meta property="twitter:title" content="AuroraTime" />
-    <meta property="twitter:description" content="AI Mood-Based Time Tracker" />
-    <meta
-      property="twitter:image"
-      content="https://static.getmocha.com/og.png"
-      type="image/png"
-    />
-    <link
-      rel="shortcut icon"
-      href="https://static.getmocha.com/favicon.ico"
-      type="image/x-icon"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="https://static.getmocha.com/apple-touch-icon.png"
-      type="image/png"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <title>AuroraTime</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/react-app/main.tsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuroraTime - Login</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Login Page Styles -->
+    <link rel="stylesheet" href="styles/login.css">
+</head>
+
+<body>
+
+    <h1 class="title">AuroraTime</h1>
+    <p class="subtitle">Track your time, elevate your mood ✨</p>
+
+    <button class="login-btn" onclick="googleLogin()">
+        <img class="google-icon" src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png">
+        Continue with Google
+    </button>
+
+    <!-- Firebase App (compat) -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+
+    <!-- Firebase Auth (compat) -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyAleMfich680x6xilWHXOKshwy6x265H5Y",
+        authDomain: "auroratime-24dbe.firebaseapp.com",
+        databaseURL: "https://auroratime-24dbe-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "auroratime-24dbe",
+        storageBucket: "auroratime-24dbe.firebasestorage.app",
+        messagingSenderId: "879827095512",
+        appId: "1:879827095512:web:772f6472c0a4a67232ecad"
+      };
+
+      firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <!-- Auth Handling -->
+    <script src="scripts/auth.js"></script>
+
+</body>
 </html>
